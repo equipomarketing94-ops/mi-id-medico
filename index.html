@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Médico de Emergencia</title>
+    <style>
+        :root {
+            --primary: #e63946;
+            --background: #f8f9fa;
+            --text: #333333;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            margin: 0 0 5px 0;
+            font-size: 24px;
+        }
+        .alert-box {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .alert-box h2 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .alert-box p {
+            margin: 5px 0 0 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .btn-call {
+            display: block;
+            width: 100%;
+            background-color: #2a9d8f;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .collapsible {
+            background-color: #e9ecef;
+            color: var(--text);
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .active, .collapsible:hover {
+            background-color: #dee2e6;
+        }
+        .content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+        .data-group {
+            margin: 15px 0;
+        }
+        .data-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .data-value {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>[Nataly Martínez Orrego]</h1>
+            <p style="color: #666; margin: 0;">ID de Emergencia / Emergency ID</p>
+        </div>
+
+        <!-- Zona Crítica (Visible Inmediatamente) -->
+        <div class="alert-box">
+            <h2>RH: [O+]</h2>
+            <p>⚠ [Enfermedad neurodegenerativa Sindrome de Kufor Rakeb / Sin Alergias]</p>
+        </div>
+
+        <!-- Botones de Contacto -->
+        <a href="tel:+57[322 641 7566]" class="btn-call">
+            📞 Llamar a [Mamá Maria Orrego]
+        </a>
+        <a href="tel:+57[322 584 6555]" class="btn-call" style="background-color: #264653;">
+            📞 Llamar a [Hermano Luis Martínez]
+        </a>
+
+        <!-- Historial Médico Desplegable -->
+        <button class="collapsible">Historial Médico / Medical History <span>▼</span></button>
+        <div class="content">
+            <div class="data-group">
+                <div class="data-label">Condiciones Médicas Previas</div>
+                <div class="data-value">[Detalle de condiciones o cirugías]</div>
+            </div>
+            
+            <div class="data-group">
+                <div class="data-label">Medicamentos Actuales</div>
+                <div class="data-value">[Nombre del medicamento] - [Dosis]</div>
+            </div>
+
+            <div class="data-group">
+                <div class="data-label">Entidad de Salud (EPS / Seguro)</div>
+                <div class="data-value">[Nombre de tu EPS o Seguro Médico Internacional]</div>
+            </div>
+            
+            <div class="data-group">
+                <div class="data-label">Donante de Órganos</div>
+                <div class="data-value">[Sí / No]</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica para el menú desplegable -->
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+
+</body>
+</html>b
